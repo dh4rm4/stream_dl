@@ -79,8 +79,8 @@ if os.getuid() == 0:
     print '\n\n' + col.FAIL + col.BOLD + '======== INITIALISATION STREAM_DL =======\n\n' + col.ENDC
     try:
         import stream_dl
-        print 'stream_dl  .....................' + col.BOLD + col.OKGREEN + 'OK' + col.ENDC
     except ImportError:
-        print 'stream_dl  .....................' + col.BOLD + col.FAIL + 'NOPE' + col.ENDC
+        print col.BOLD + col.FAIL + 'ERROR: can\'t access to stream_dl.py\n' + col.ENDC
+    print '      ' + col.LOWRED + '===   Bye r00t   ===' + col.ENDC
 else:
     print col.BOLD + 'I cannot run as a mortal.\n' + col.UNDERLINE + col.FAIL + 'Try again as r00t' + col.ENDC
