@@ -24,7 +24,7 @@ def check_pip():
     if (cmd_exists('pip') == False):
         print 'pip        .....................' + col.BOLD + col.FAIL + 'NOPE' + col.ENDC
         print 'initialise pip installation:'
-        os.system("apt-get -yqq install pip")
+        os.system("sudo apt-get -yqq install pip")
         print 'pip        .....................' + col.BOLD + col.OKGREEN + 'OK' + col.ENDC
     else:
 
@@ -43,6 +43,7 @@ def dependancies():
         print 'initialise Tkinter installation:'
         if (sys.version_info < (3,0)):
             os.system('apt-get -yqq install python-tk')
+            os.system('apt-get -yqq install python-imaging-tk')
         else:
             os.system('apt-get -yqq install python3-tk')
             os.system('apt-get -yqq install python-imaging-tk')
