@@ -24,7 +24,7 @@ def check_pip():
     if (cmd_exists('pip') == False):
         print 'pip        .....................' + col.BOLD + col.FAIL + 'NOPE' + col.ENDC
         print 'initialise pip installation:'
-        os.system("sudo apt-get -yqq install pip")
+        os.system("apt-get -yqq install pip")
         print 'pip        .....................' + col.BOLD + col.OKGREEN + 'OK' + col.ENDC
     else:
 
