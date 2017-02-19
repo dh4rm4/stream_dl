@@ -31,12 +31,8 @@ def get_infos():
         ydl_opts = {
             'format': 'bestvideo+bestaudio/best',
             'noplaylist': dl_pl,}
-
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
-        meta = ydl.extract_info(url, download=False)
-    print 'duration    : %s' %(meta['duration'])
-    print 'title       : %s' %(meta['title'])
 
 
 # WINDOWS MANAGEMENT
