@@ -18,7 +18,10 @@ Also a specific library
 ```
 sudo apt-get install libav-tools
 ```
-And finally all thos python(2) modules
+And finally all those python(2) modules via pip
+```
+sudo pip install [module_name]
+```
 ```
 tkinter
 ttk
@@ -30,3 +33,7 @@ youtube-dl
 
 * [youtube-dl](https://github.com/rg3/youtube-dl) : the module to download video
 * [tkinter](https://docs.python.org/2/library/tkinter.html) : the graphical module
+
+### Error
+If you have the error ""ValueError: unknown url type: /yts/jsbin/player-en_US-vflV3n15C/base.js", you can solve it with this method:
+* [Fix #11892](https://github.com/rg3/youtube-dl/pull/11892/files) : a fix form * [Khang-NT](https://github.com/Khang-NT)
