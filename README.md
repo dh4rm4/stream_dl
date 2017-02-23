@@ -36,4 +36,4 @@ youtube-dl
 
 ### Error
 If you have the error ""ValueError: unknown url type: /yts/jsbin/player-en_US-vflV3n15C/base.js", you can solve it with this method:
-* [Fix #11892](https://github.com/rg3/youtube-dl/pull/11892/files) : a fix form * [Khang-NT](https://github.com/Khang-NT)
+* [Fix #11892](https://github.com/rg3/youtube-dl/pull/11892/files) : a fix from [Khang-NT](https://github.com/Khang-NT)
