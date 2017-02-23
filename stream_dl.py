@@ -1,73 +1,75 @@
-#!/usr/bin/env python2.7.9
+#!/usr/bin/env python2.6
 # -*- coding: utf-8 -*-
 
-#from __future__ import unicode_literals
 from Tkinter import *
 from ttk import *
 from PIL import ImageTk, Image
 import youtube_dl
 
-def get_infos():
-    url = (url_input.get())
 
-    dl_pl = pl_choice.get()
-    if (dl_pl == "YES"):
-        dl_pl = False
+def optionsForAudio(dl_playlist):
+    return ({
+        'format': 'bestaudio/best',
+        'noplaylist': dl_playlist,
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'mp3',
+            'preferredquality': '192',
+        }]})
+
+def optionsForVideo(dl_playlist):
+    return ({
+        'format': 'bestvideo+bestaudio/best',
+        'noplaylist': dl_playlist,
+    })
+
+def downloadVideo(options):
+    with youtube_dl.YoutubeDL(options) as ydl:
+        ydl.download([url_input.get()])
+
+def getInfos():
+    dl_playlist = False if (pl_choice.get() == "YES") else True
+    if (format_choice.get() == "MP3"):
+        downloadOptions = optionsForMp3(dl_playlist)
     else:
-        dl_pl = True
-
-    format_dl = format_choice.get()
-    if (format_dl == "MP3"):
-        ydl_opts = {
-            'format': 'bestaudio/best',
-            'noplaylist': dl_pl,
-            'postprocessors': [{
-                'key': 'FFmpegExtractAudio',
-                'preferredcodec': 'mp3',
-                'preferredquality': '192',
-                    }]}
-        format_dl = 'bestvideo+bestaudio/best'
-    else:
-        ydl_opts = {
-            'format': 'bestvideo+bestaudio/best',
-            'noplaylist': dl_pl,}
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        ydl.download([url])
+        downloadOptions = optionsForVideo(dl_playlist)
+    downloadVideo(downloadOptions)
 
 
-# WINDOWS MANAGEMENT
-win = Tk()
-win.resizable(width=False, height=False)
-win.geometry('{}x{}'.format(550, 420))
+if __name__ == '__main__':
+    # WINDOWS MANAGEMENT
+    win = Tk()
+    win.resizable(width=False, height=False)
+    win.geometry('{}x{}'.format(550, 420))
 
-# BACKHROUND IMAGE
-bk_img = ImageTk.PhotoImage(Image.open("bg.jpg"))
-bk_label = Label(image=bk_img)
-bk_label.place(x=-1, y=-1)#, relwidth=1, relheight=1)
+    # BACKGROUND IMAGE
+    bk_img = ImageTk.PhotoImage(Image.open("bg.jpg"))
+    bk_label = Label(image=bk_img)
+    bk_label.place(x=-1, y=-1)#, relwidth=1, relheight=1)
 
-# COPY URL OF THE VIDEO :
-url_value = StringVar()
-url_value.set("URL de votre video")
-url_input = Entry(win, textvariable=url_value, width=60)
-url_input.place(x=25, y=25, width=500, height=25)
+    # COPY URL OF THE VIDEO :
+    url_value = StringVar()
+    url_value.set("URL de votre video")
+    url_input = Entry(win, textvariable=url_value, width=60)
+    url_input.place(x=25, y=25, width=500, height=25)
 
-# MANAGE THE FORMAT :
-form_choice = ['Download Format :', 'MP4', 'MP3']
-variable = StringVar(win)
-variable.set('Download Format')
-format_choice = Combobox(win, values = form_choice)
-format_choice.current(0)
-format_choice.place(x=75, y=65)
+    # MANAGE THE FORMAT :
+    form_choice = ['Download Format :', 'MP4', 'MP3']
+    variable = StringVar(win)
+    variable.set('Download Format')
+    format_choice = Combobox(win, values = form_choice)
+    format_choice.current(0)
+    format_choice.place(x=75, y=65)
 
-# MANAGE THE Playlist :
-choice_pl = ['Download the playlist :', 'YES', 'NOPE']
-pl_var = StringVar(win)
-pl_var.set('Download playlist')
-pl_choice = Combobox(win, values = choice_pl)
-pl_choice.current(0)
-pl_choice.place(x=75, y=95)
+    # MANAGE THE Playlist :
+    choice_pl = ['Download the playlist :', 'YES', 'NOPE']
+    pl_var = StringVar(win)
+    pl_var.set('Download playlist')
+    pl_choice = Combobox(win, values = choice_pl)
+    pl_choice.current(0)
+    pl_choice.place(x=75, y=95)
 
-validation = Button(win, text="Validate", command=get_infos)
-validation.place(x=75, y=125)
+    validation = Button(win, text="Validate", command=getInfos)
+    validation.place(x=75, y=125)
 
-win.mainloop()
+    win.mainloop()

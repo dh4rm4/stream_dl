@@ -2,4 +2,3 @@ if the error "ValueError: unknown url type: /yts/jsbin/player-en_US-vflV3n15C/ba
    go to https://github.com/rg3/youtube-dl/pull/11892/files and manually make the change
 
 fix bug: continue to download even when video are not available
-fix dependancies: for error "ffprobe or avprobe not found" install libav-tools
