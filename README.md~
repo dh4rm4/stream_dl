@@ -1,8 +1,0 @@
-# STREAM_DL
-
-Stream_dl is a userfriendly interface to download/convert stream videos
-
-### Built With
-
-* [youtube-dl](https://github.com/rg3/youtube-dl) : the module to download video
-* [tkinter](https://docs.python.org/2/library/tkinter.html) : the graphical module

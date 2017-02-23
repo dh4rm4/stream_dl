@@ -2,6 +2,8 @@
 
 Stream_dl is a userfriendly interface to download/convert stream videos
 
+## ONLY WORK ON DEBIAN BASED DISTRIB FOR NOW
+
 ## Installing
 
 ### Automatically
