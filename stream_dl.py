@@ -36,7 +36,7 @@ def getInfos():
     downloadVideo(downloadOptions)
 
 
-if __name__ == '__main__':
+def main():
     # WINDOWS MANAGEMENT
     win = Tk()
     win.resizable(width=False, height=False)
@@ -73,3 +73,6 @@ if __name__ == '__main__':
     validation.place(x=75, y=125)
 
     win.mainloop()
+
+if __name__ == '__main__':
+    main()
