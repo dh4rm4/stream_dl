@@ -6,6 +6,9 @@ from ttk import *
 from PIL import ImageTk, Image
 import youtube_dl
 
+global pl_choice
+global format_choice
+global url_input
 
 def optionsForAudio(dl_playlist):
     return ({
@@ -24,19 +27,27 @@ def optionsForVideo(dl_playlist):
     })
 
 def downloadVideo(options):
+    global url_input
     with youtube_dl.YoutubeDL(options) as ydl:
         ydl.download([url_input.get()])
 
 def getInfos():
+    global pl_choice
+    global format_choice
+
     dl_playlist = False if (pl_choice.get() == "YES") else True
     if (format_choice.get() == "MP3"):
-        downloadOptions = optionsForMp3(dl_playlist)
+        downloadOptions = optionsForAudio(dl_playlist)
     else:
         downloadOptions = optionsForVideo(dl_playlist)
     downloadVideo(downloadOptions)
 
 
 def main():
+    global pl_choice
+    global format_choice
+    global url_input
+
     # WINDOWS MANAGEMENT
     win = Tk()
     win.resizable(width=False, height=False)
