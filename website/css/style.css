@@ -90,8 +90,7 @@ canvas{
     top: calc(50% - 365px);
     left: calc(50% - 125px);
 
-    filter: grayscale(100%);
-    filter: blur(0px);
+    filter: grayscale(0%);
 }
 
 
@@ -108,8 +107,11 @@ canvas{
     left: calc(50% - 225px);  
 }
 
-.dl_format{
-    width: 200px;
+
+/* User Choices */
+
+.urlBox {
+    width: 350px;
     height: 40px;
 
     background-color: #191934;
@@ -121,7 +123,7 @@ canvas{
     right: 0;
     bottom: 0;
     top: calc(50% - 235px);
-    left: calc(50% - 90px);  
+    left: calc(50% - 165px);
     
     color: white
 }
@@ -144,7 +146,7 @@ canvas{
     color: white
 }
 
-.dl_playlist{
+.dl_format{
     width: 200px;
     height: 40px;
 
@@ -159,52 +161,75 @@ canvas{
     top: calc(50% - 105px);
     left: calc(50% - 90px);  
     
+    color: #FFFFFF
+}
+
+.dl_playlist{
+    width: 200px;
+    height: 40px;
+
+    background-color: #191934;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: calc(50% - 40px);
+    left: calc(50% - 90px);  
+    
     color: white
 }
 
 
-.text-input{
+/* Launch Button */
 
-    position: relative;
-    margin-top: 50px;
+.formButton {
+    position: absolute;
+    top: calc(55%);
+    left: calc(50% - 60px);  
 
-    input[type="text"]{
-	display: inline-block;
-	width: 500px;
-	height: 40px;
-	box-sizing: border-box;
-	outline: none;
-	border: 1px solid lightgray;
-	border-radius: 3px;
-	padding: 10px 10px 10px 100px;
-	transition: all 0.1s ease-out;
-    }
+    background-color:#191934;
+    display:inline-block;
+    color:#2ecc71;
+    font-size:28px;
+    font-weight: 500;
+    padding:6px 24px;
+    margin-top: 15px;
+    margin-right: 60px;
+    text-decoration:none;
+}
 
-    input[type="text"] + label{
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	height: 40px;
-	line-height: 40px;
-	color: white;
-	border-radius: 3px 0 0 3px;
-	padding: 0 20px;
-	background: #E03616;
-	transform: translateZ(0) translateX(0);
-	transition: all 0.3s ease-in;
-	transition-delay: 0.2s;
-    }
+.formButton:hover {
+    background-color: #27ae60;
+    color:#ffffff;
+}
 
-    input[type="text"]:focus + label{
-	transform: translateY(-120%) translateX(0%);
-	border-radius: 3px;
-	transition: all 0.1s ease-out;
-    }
+.formButton:active {
+    position: absolute;
+    top: calc(55%);
+    left: calc(50% - 60px);  
+}
 
-    input[type="text"]:focus{
-	padding: 10px;
-	transition: all 0.3s ease-out;
-	transition-delay: 0.2s;
-    }
+/*To remove the outline that appears on clicking the input textbox*/
+input:focus {
+    outline: none;
+}
+
+/* To format the placeholder text color */
+::-webkit-input-placeholder {
+    color: #ecf0f1;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: #ecf0f1;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: #ecf0f1;
+}
+
+:-ms-input-placeholder {
+    color: #ecf0f1;
 }
