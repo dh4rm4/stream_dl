@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link rel="icon" src="/static/img/no_copyright.png">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles/style.css') }}">
+    <!--link rel="stylesheet" media="screen" href="css/style.css"-->
+  </head>
+  <body>
+
+    <!-- Main Box -->
+    <div class="blurred-box">
+    </div>
+    <div class="text-box">
+      <!-- Logos -->
+      <div class="logo">
+	<img class="logo0" src="/static/img/logo.png" alt="logo">
+	<img class="logo1" src="/static/img/logo_name.png" alt="logo">
+      </div>
+
+      <!-- User choices -->
+      <div class="custom-select"`>
+	<select class="dl_format">
+	  <option value="0">Select format:</option>
+	  <option value="1">Mp3</option>
+	  <option value="2">Mp4</option>
+	</select>
+
+	<select class="dl_quality">
+	  <option value="0">Select Quality:</option>
+	  <option value="1">Minimum</option>
+	  <option value="2">Average</option>
+	  <option value="3">Maximum</option>
+	</select>
+
+	<select class="dl_playlist">
+	  <option value="0">Download playlist:</option>
+	  <option value="1">Yes</option>
+	  <option value="2">No</option>
+	</select>
+      </div>
+
+      <!-- URL -->
+      <div>
+	<form action="">
+	  <input type="text" name="name" class="urlBox" placeholder="Video / Playlist URL" />
+	  <a href="#" class="formButton">Launch</a>
+	</form>
+      </div>
+    </div>    
+    <!-- particles.js container -->
+    <div id="particles-js"></div>
+
+    <!-- scripts -->
+    <script src="/static/js/particles/particles.js"></script>
+    <script src="/static/js/particles/src/app.js"></script>
+
+
+  </body>
+</html>

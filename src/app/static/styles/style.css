@@ -1,0 +1,235 @@
+ /* =============================================================================
+   HTML5 CSS Reset Minified - Eric Meyer
+   ========================================================================== */
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+li{list-style:none}
+
+
+/* =============================================================================
+   My CSS
+   ========================================================================== */
+
+/* ---- base ---- */
+
+html,body{ 
+    height:100%;
+    background:#111;
+}
+
+html{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body{
+    font:normal 150% Arial, Helvetica, sans-serif;
+}
+
+canvas{
+    display:block;
+    vertical-align:bottom;
+}
+
+
+/* ---- stats.js ---- */
+
+#particles-js{
+    width: 100%;
+    height: 100%;
+    background-color: #00010F;
+/*    background-color: #191934;*/
+    background-image: url('');
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+
+
+/* ---- Main Box ---- */
+
+.blurred-box{
+    width: 400px;
+    height: 700px;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: calc(50% - 350px);
+    left: calc(50% - 225px);
+
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.3);
+    filter: blur(10px);
+    
+}
+
+
+/* ---- Logo ---- */
+
+.logo0{
+    width: 200px;
+    height: 200px;
+
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: calc(50% - 365px);
+    left: calc(50% - 125px);
+
+    filter: grayscale(0%);
+}
+
+
+
+.text-box{
+
+    width: 380px;
+    height: 680px;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: calc(50% - 200px);
+    left: calc(50% - 225px);  
+}
+
+
+/* User Choices */
+
+.urlBox {
+    width: 350px;
+    height: 40px;
+
+    background-color: #191934;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: calc(50% - 235px);
+    left: calc(50% - 165px);
+    
+    color: white
+}
+
+.dl_quality{
+    width: 200px;
+    height: 40px;
+
+    background-color: #191934;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: calc(50% - 170px);
+    left: calc(50% - 90px);  
+    
+    color: white
+}
+
+.dl_format{
+    width: 200px;
+    height: 40px;
+
+    background-color: #191934;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: calc(50% - 105px);
+    left: calc(50% - 90px);  
+    
+    color: #FFFFFF
+}
+
+.dl_playlist{
+    width: 200px;
+    height: 40px;
+
+    background-color: #191934;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: calc(50% - 40px);
+    left: calc(50% - 90px);  
+    
+    color: white
+}
+
+
+/* Launch Button */
+
+.formButton {
+    position: absolute;
+    top: calc(55%);
+    left: calc(50% - 60px);  
+
+    background-color:#191934;
+    display:inline-block;
+    color:#2ecc71;
+    font-size:28px;
+    font-weight: 500;
+    padding:6px 24px;
+    margin-top: 15px;
+    margin-right: 60px;
+    text-decoration:none;
+}
+
+.formButton:hover {
+    background-color: #27ae60;
+    color:#ffffff;
+}
+
+.formButton:active {
+    position: absolute;
+    top: calc(55%);
+    left: calc(50% - 60px);  
+}
+
+/*To remove the outline that appears on clicking the input textbox*/
+input:focus {
+    outline: none;
+}
+
+/* To format the placeholder text color */
+::-webkit-input-placeholder {
+    color: #ecf0f1;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: #ecf0f1;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: #ecf0f1;
+}
+
+:-ms-input-placeholder {
+    color: #ecf0f1;
+}
