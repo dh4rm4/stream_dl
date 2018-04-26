@@ -19,41 +19,33 @@
 	<img class="logo1" src="/static/img/logo_name.png" alt="logo">
       </div>
 
-      <div class="custom-select"`>
-	<select class="dl_format">
-	  <option value="0">Select format:</option>
-	  <option value="1">Mp3</option>
-	  <option value="2">Mp4</option>
-	</select>
-
-	<select class="dl_quality">
-	  <option value="0">Select Quality:</option>
-	  <option value="1">Minimum</option>
-	  <option value="2">Average</option>
-	  <option value="3">Maximum</option>
-	</select>
-
-	<select class="dl_playlist">
-	  <option value="0">Download playlist:</option>
-	  <option value="1">Yes</option>
-	  <option value="2">No</option>
-	</select>
-      </div>
-
       <!-- User choices -->
       {% block content %}
 	<form action="" method="post">
 	  {{ form.hidden_tag() }}
+	  <!-- Video Url Bar -->
 	  <p>
+	    {{ form.videoUrl(class_="urlBox", placeholder="Video Url") }}
 	    {% for error in form.videoUrl.errors %}
 	    <div class="error-msg">
 	      <i class="fa fa-times-circle"></i>
 	      You need to select every options.
 	    </div>
             {% endfor %}
-	    {{ form.videoUrl(class_="urlBox", placeholder="Video Url") }}
 	  </p>
+
+	  <!-- Quality Options -->
+	  {{ form.quality_list(class_="dl_quality") }}
+
+	  <!-- Format Options -->
+	  {{ form.format_list(class_="dl_format") }}
+
+	  <!-- Download Playlist -->
+	  {{ form.dl_playlist(class_="dl_playlist") }}
+	  
+	  <!-- Launch Button -->
 	  {{ form.submit(class_="formButton") }}
+
 	</form>
       {% endblock %}
     </div>
