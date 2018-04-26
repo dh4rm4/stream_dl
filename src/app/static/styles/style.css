@@ -2,6 +2,8 @@
    HTML5 CSS Reset Minified - Eric Meyer
    ========================================================================== */
 
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
+
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
 body{line-height:1}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
@@ -125,7 +127,10 @@ canvas{
     top: calc(50% - 235px);
     left: calc(50% - 165px);
     
-    color: white
+    font-family: "Palatino";
+    font-size: 1em;
+    color: white;
+    text-align: center;
 }
 
 .dl_quality{
@@ -142,8 +147,9 @@ canvas{
     bottom: 0;
     top: calc(50% - 170px);
     left: calc(50% - 90px);  
-    
-    color: white
+
+    color: white;
+    font-weight: bold;
 }
 
 .dl_format{
@@ -161,7 +167,8 @@ canvas{
     top: calc(50% - 105px);
     left: calc(50% - 90px);  
     
-    color: #FFFFFF
+    color: #FFFFFF;
+    font-weight: bold;
 }
 
 .dl_playlist{
@@ -179,7 +186,25 @@ canvas{
     top: calc(50% - 40px);
     left: calc(50% - 90px);  
     
-    color: white
+    color: white;
+    font-weight: bold;
+}
+
+/* Error Message */
+
+
+.error-msg {
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 3px 3px 3px 3px;
+
+    position: absolute;
+    top: calc(55% + 70px);
+    left: calc(50% - 150px);  
+    
+    color: #D8000C;
+    font-size: 20px;
+    background-color: #FFBABA;
 }
 
 

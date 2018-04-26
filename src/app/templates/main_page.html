@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>{{ title }}</title>
-    <link rel="icon" src="/static/img/no_copyright.png">
+    <link rel="icon" src="/static/img/logo.png">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles/style.css') }}">
     <!--link rel="stylesheet" media="screen" href="css/style.css"-->
   </head>
@@ -19,7 +19,6 @@
 	<img class="logo1" src="/static/img/logo_name.png" alt="logo">
       </div>
 
-      <!-- User choices -->
       <div class="custom-select"`>
 	<select class="dl_format">
 	  <option value="0">Select format:</option>
@@ -41,14 +40,25 @@
 	</select>
       </div>
 
-      <!-- URL -->
-      <div>
-	<form action="">
-	  <input type="text" name="name" class="urlBox" placeholder="Video / Playlist URL" />
-	  <a href="#" class="formButton">Launch</a>
+      <!-- User choices -->
+      {% block content %}
+	<form action="" method="post">
+	  {{ form.hidden_tag() }}
+	  <p>
+	    {% for error in form.videoUrl.errors %}
+	    <div class="error-msg">
+	      <i class="fa fa-times-circle"></i>
+	      You need to select every options.
+	    </div>
+            {% endfor %}
+	    {{ form.videoUrl(class_="urlBox", placeholder="Video Url") }}
+	  </p>
+	  {{ form.submit(class_="formButton") }}
 	</form>
-      </div>
-    </div>    
+      {% endblock %}
+    </div>
+
+    
     <!-- particles.js container -->
     <div id="particles-js"></div>
 
