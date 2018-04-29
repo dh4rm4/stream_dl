@@ -13,27 +13,27 @@ class dlOptions(FlaskForm):
 
     # video quality
     quality_dict = [('0', Markup('Select Quality')), \
-                     ('1', 'Maximum'), \
-                     ('2', 'Minimum')]
+                     ('Max', 'Maximum'), \
+                     ('Min', 'Minimum')]
     quality_list = SelectField('Select Quality',
                                choices=quality_dict,
                                validators=[Required()])
 
     # file format
     format_dict = [('0', Markup('Select Format')),
-                   ('1', 'Mp3'),
-                   ('2', 'Mp4')]
+                   ('mp3', 'Mp3'),
+                   ('mp4', 'Mp4')]
     format_list = SelectField('Select Format',
                               choices=format_dict,
                               validators=[Required()])
 
     # Download playlist (boolean)
     dl_playlist_dict = [('0', Markup('Download PLaylist ?')),
-                        ('1', 'Yes'),
-                        ('2', 'No')]
+                        ('yes', 'Yes'),
+                        ('no', 'No')]
     dl_playlist = SelectField('Download PLaylist',
                               choices=dl_playlist_dict,
                               validators=[Required()])
 
     submit = SubmitField('Launch')
-    
+
