@@ -1,22 +1,26 @@
 from __future__ import unicode_literals
 import youtube_dl
-import random, string, os, shutil
+import random
+import string
+import os
+import shutil
+
 
 class myLogger(object):
     """
     youtube-dl logger
     """
-    
+
     def debug(self, msg):
         pass
-    
+
     def warning(self, msg):
         pass
-    
+
     def error(self, msg):
         print(msg)
 
-        
+
 class streamDlCore(object):
     """
     Class calling youtube-dl package
@@ -28,10 +32,10 @@ class streamDlCore(object):
     def __init__(self, url, quality, vFormat, dl_playlist):
         self.url = url
         self.postProcessor = self.get_postProcessor(quality, vFormat)
-        self.vFormat= self.get_vFormat(vFormat, quality)
+        self.vFormat = self.get_vFormat(vFormat, quality)
         self.dl_playlist = self.need_dl_playlist(dl_playlist)
         self.dlDir = self.set_dl_dir()
-        
+
     def get_postProcessor(self, quality, vFormat):
         """
         return dict with options for postDownload process
@@ -56,7 +60,7 @@ class streamDlCore(object):
         else:
             if quality == 'max':
                 return 'bestvideo'
-            return 'worstvideo'            
+            return 'worstvideo'
 
     def need_dl_playlist(self, dl_playlist):
         """
@@ -69,26 +73,25 @@ class streamDlCore(object):
     def get_rand_str(self, a, b):
         return ''.join([random.choice(string.ascii_lowercase)
                         for _ in range(random.randint(a, b))])
-    
+
     def set_dl_dir(self):
         """
-        create a tmp directory with random name 
+        create a tmp directory with random name
         and return its name
         """
         dirName = self.get_rand_str(8, 8)
         dirPath = 'dl/' + dirName + '/'
         if not os.path.exists(dirPath):
             os.makedirs(dirPath)
-#            os.chmod(dirPath, 0o666)
         return dirPath
-        
+
     def start(self):
         options = {
             'format': self.vFormat,
             'postprocessors': self.postProcessor,
             'logger': myLogger(),
             'noplaylist': self.dl_playlist,
-            'ignoreerrors': False,            
+            'ignoreerrors': False,
             'outtmpl': self.dlDir + '%(title)s.%(ext)s',
         }
         with youtube_dl.YoutubeDL(options) as ydl:
@@ -100,4 +103,3 @@ class streamDlCore(object):
 
     def get_path(self):
         return ('../' + self.archive_path + '.zip')
-        

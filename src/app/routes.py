@@ -10,9 +10,9 @@ def main_page():
     form = dlOptions()
     if form.validate_on_submit():
         cur_session = streamDlCore(form.videoUrl.data,
-                                     form.quality_list.data,
-                                     form.format_list.data,
-                                     form.dl_playlist.data)
+                                   form.quality_list.data,
+                                   form.format_list.data,
+                                   form.dl_playlist.data)
         cur_session.start()
         archive_path = cur_session.get_path()
         return send_file(archive_path)
