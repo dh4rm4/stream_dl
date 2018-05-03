@@ -52,7 +52,7 @@ canvas{
     height: 100%;
     background-color: #00010F;
 /*    background-color: #191934;*/
-    background-image: url('');
+    background-image: url('../img/background.jpg');
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
