@@ -91,7 +91,7 @@ class streamDlCore(object):
             'postprocessors': self.postProcessor,
             'logger': myLogger(),
             'noplaylist': self.dl_playlist,
-            'ignoreerrors': False,
+            'ignoreerrors': True,
             'outtmpl': self.dlDir + '%(title)s.%(ext)s',
         }
         with youtube_dl.YoutubeDL(options) as ydl:
