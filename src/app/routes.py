@@ -1,8 +1,8 @@
-from flask import render_template, redirect, send_file
+from flask import render_template, redirect, send_file, make_response
 from app import app
 from app.options import dlOptions
 from app.streamDlCore import streamDlCore
-
+import os
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/stream_dl', methods=['GET', 'POST'])
@@ -23,7 +23,17 @@ def main_page():
 
 @app.route('/<archive_path>')
 def download_page(archive_path):
-    return send_file(archive_path)
+    file_size= os.path.getsize('/webapps/stream_dl/src/dl/boid.img')    
+    filename = 'boid.img'#archive_path.split('/')[-1]
+    response = make_response()
+    path_server = '/download/boid'
+    response.headers['Content-Description'] = 'File Transfer'
+    response.headers['Cache-Control'] = 'no-cache'
+    response.headers['Content-Type'] = 'application/octet-stream'
+    response.headers['Content-Disposition'] = 'attachment; filename=%s' % filename
+    response.headers['Content-Length'] = file_size
+    response.headers['X-Accel-Redirect'] = path_server
+    return response
 
 
 @app.errorhandler(404)
