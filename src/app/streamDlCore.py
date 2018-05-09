@@ -41,7 +41,8 @@ class streamDlCore(object):
         Remove old files from dl directory
         """
         shutil.rmtree('app/dl')
-        os.makedirs('app/dl')
+        if not os.path.exists('app/dl'):
+            os.makedirs('app/dl')
        
         
     def get_postProcessor(self, quality, vFormat):
