@@ -1,7 +1,7 @@
 # STREAM_DL
 
 Stream_dl is a docker image "Ready to use", to dowload contents from a large majority of streaming platforms.
-Click [here](https://rg3.github.io/youtube-dl/supportedsites.html) to see the full list.
+***Click [here](https://rg3.github.io/youtube-dl/supportedsites.html) to see the full list.***
 
 The tech used are as below:
 * [Python 3.5](https://www.python.org/)
