@@ -36,6 +36,14 @@ class streamDlCore(object):
         self.dl_playlist = self.need_dl_playlist(dl_playlist)
         self.dlDir = self.set_dl_dir()
 
+    def clean_dl_dir(self):
+        """
+        Remove old files from dl directory
+        """
+        shutil.rmtree('app/dl')
+        os.makedirs('app/dl')
+       
+        
     def get_postProcessor(self, quality, vFormat):
         """
         return dict with options for postDownload process
@@ -80,12 +88,13 @@ class streamDlCore(object):
         and return its name
         """
         dirName = self.get_rand_str(8, 8)
-        dirPath = 'dl/' + dirName + '/'
+        dirPath = 'app/dl/' + dirName + '/'
         if not os.path.exists(dirPath):
             os.makedirs(dirPath)
         return dirPath
 
     def start(self):
+        self.clean_dl_dir()
         options = {
             'format': self.vFormat,
             'postprocessors': self.postProcessor,
@@ -98,11 +107,12 @@ class streamDlCore(object):
             ydl.download([self.url])
         self.create_archive_for_dl()
 
-            
+
     def create_archive_for_dl(self):
-        self.archive_path = 'dl/your_stream_' + self.get_rand_str(4, 6)
+        self.archive_name = 'your_stream_' + self.get_rand_str(4, 6)
+        self.archive_path = 'app/dl/' + self.archive_name
         shutil.make_archive(self.archive_path, 'zip', self.dlDir)
-        shutil.rmtree(self.dlDir) 
+        shutil.rmtree(self.dlDir)
 
     def get_path(self):
-        return (self.archive_path + '.zip')
+        return (self.archive_name + '.zip')

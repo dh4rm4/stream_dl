@@ -1,4 +1,4 @@
-from flask import render_template, redirect, send_file, make_response, request
+from flask import render_template, redirect, send_from_directory, make_response, request
 from app import app
 from app.options import dlOptions
 from app.streamDlCore import streamDlCore
@@ -23,8 +23,8 @@ def main_page():
 
 @app.route('/stream_dl/dl_archive', methods=['GET'])
 def download_page():
-    file_path = request.values['archive_path']
-    return send_file(file_path)
+    filename = request.values['archive_path']
+    return send_from_directory('dl', filename)
 
 
 @app.errorhandler(404)
