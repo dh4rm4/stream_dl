@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Download Page</title>
     <link rel="icon" src="favicon.ico">
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles/dl_page.css') }}">
   </head>
   <body>
 
@@ -18,15 +18,7 @@
 	<img class="logo1" src="/static/img/logo_name.png" alt="logo">
       </div>
 
-      <a href="{{ url_for('download_page', archive_path=archive_path) }}">Download</a>
+      <a class="dl_button" href="{{ url_for('download_page', archive_path=archive_path) }}">Download</a>
     
-    <!-- particles.js container -->
-    <div id="particles-js"></div>
-
-    <!-- scripts -->
-    <script src="/static/js/particles/particles.js"></script>
-    <script src="/static/js/particles/src/app.js"></script>
-
-
   </body>
 </html>
