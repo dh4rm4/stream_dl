@@ -21,6 +21,7 @@ RUN mkdir -p /webapps/stream_dl
 ADD requirements.txt /webapps/stream_dl/
 WORKDIR /webapps/stream_dl
 RUN pip3 install -r requirements.txt
+WORKDIR /webapps/stream_dl/src
 
 #Setup Nginx
 ADD ./nginx/stream_dl /etc/nginx/sites-available/
@@ -34,7 +35,7 @@ ADD . /webapps/stream_dl/
 
 # Manage outside acces
 EXPOSE 3000
-VOLUME /app/log/stream_dl/
+VOLUME /webapps/log/stream_dl/
 
 # Launch the app
 CMD gunicorn --bind 0.0.0.0:5000 stream_dl:app --timeout 3500
