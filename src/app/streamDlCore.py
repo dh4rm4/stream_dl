@@ -96,10 +96,13 @@ class streamDlCore(object):
         }
         with youtube_dl.YoutubeDL(options) as ydl:
             ydl.download([self.url])
+        self.create_archive_for_dl()
 
-        archive_name = self.get_rand_str(4, 6)
-        self.archive_path = self.dlDir + archive_name
+            
+    def create_archive_for_dl(self):
+        self.archive_path = 'dl/your_stream_' + self.get_rand_str(4, 6)
         shutil.make_archive(self.archive_path, 'zip', self.dlDir)
+        shutil.rmtree(self.dlDir) 
 
     def get_path(self):
-        return ('../' + self.archive_path + '.zip')
+        return (self.archive_path + '.zip')
