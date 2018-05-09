@@ -15,25 +15,8 @@ def main_page():
                                    form.dl_playlist.data)
         cur_session.start()
         archive_path = cur_session.get_path()
-        return render_template('dl_page.html',
-                               title = 'Download Page',
-                               archive_path = archive_path)
+        return send_file(archive_path)
     return render_template('main_page.html', title='Stream DL', form=form)
-
-
-@app.route('/<archive_path>')
-def download_page(archive_path):
-    file_size= os.path.getsize('/webapps/stream_dl/src/dl/boid.img')    
-    filename = 'boid.img'#archive_path.split('/')[-1]
-    response = make_response()
-    path_server = '/download/boid'
-    response.headers['Content-Description'] = 'File Transfer'
-    response.headers['Cache-Control'] = 'no-cache'
-    response.headers['Content-Type'] = 'application/octet-stream'
-    response.headers['Content-Disposition'] = 'attachment; filename=%s' % filename
-    response.headers['Content-Length'] = file_size
-    response.headers['X-Accel-Redirect'] = path_server
-    return response
 
 
 @app.errorhandler(404)
@@ -43,4 +26,3 @@ def handle_bad_request(error):
 @app.errorhandler(500)
 def handle_bad_request(error):
         return render_template('500.html')
-
