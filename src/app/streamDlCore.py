@@ -38,7 +38,6 @@ class streamDlCore(object):
 
     def start(self):
         self.clean_dl_dir()
-        import pdb; pdb.set_trace()
         options = {
             'format': self.vFormat,
             'postprocessors': self.postProcessor,
