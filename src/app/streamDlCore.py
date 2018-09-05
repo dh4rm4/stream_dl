@@ -36,6 +36,21 @@ class streamDlCore(object):
         self.dl_playlist = self.need_dl_playlist(dl_playlist)
         self.dlDir = self.set_dl_dir()
 
+    def start(self):
+        self.clean_dl_dir()
+        import pdb; pdb.set_trace()
+        options = {
+            'format': self.vFormat,
+            'postprocessors': self.postProcessor,
+            'logger': myLogger(),
+            'noplaylist': self.dl_playlist,
+            'ignoreerrors': True,
+            'outtmpl': self.dlDir + '%(title)s.%(ext)s',
+        }
+        with youtube_dl.YoutubeDL(options) as ydl:
+            ydl.download([self.url])
+        self.create_archive_for_dl()
+
     def clean_dl_dir(self):
         """
         Remove old files from dl directory
@@ -64,7 +79,7 @@ class streamDlCore(object):
     def get_vFormat(self, vformat, quality):
         if vformat == 'mp3':
             if quality == 'max':
-                return 'bestaudio'
+                return 'bestaudio/best'
             return 'worstaudio'
         else:
             if quality == 'max':
@@ -93,21 +108,6 @@ class streamDlCore(object):
         if not os.path.exists(dirPath):
             os.makedirs(dirPath)
         return dirPath
-
-    def start(self):
-        self.clean_dl_dir()
-        options = {
-            'format': self.vFormat,
-            'postprocessors': self.postProcessor,
-            'logger': myLogger(),
-            'noplaylist': self.dl_playlist,
-            'ignoreerrors': True,
-            'outtmpl': self.dlDir + '%(title)s.%(ext)s',
-        }
-        with youtube_dl.YoutubeDL(options) as ydl:
-            ydl.download([self.url])
-        self.create_archive_for_dl()
-
 
     def create_archive_for_dl(self):
         self.archive_name = 'your_stream_' + self.get_rand_str(4, 6)
