@@ -1,6 +1,6 @@
-Flask==0.12.2
-Flask-WTF==0.14.2
-itsdangerous==0.24
-Jinja2==2.10
-youtube-dl==2018.4.25
-gunicorn==19.8.1
+Flask
+Flask-WTF
+itsdangerous
+Jinja2
+youtube-dl
+gunicorn
