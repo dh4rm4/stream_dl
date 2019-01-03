@@ -36,4 +36,3 @@ class dlOptions(FlaskForm):
                               validators=[Required()])
 
     submit = SubmitField('Launch')
-

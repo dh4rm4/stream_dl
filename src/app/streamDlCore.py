@@ -32,7 +32,7 @@ class streamDlCore(object):
     def __init__(self, url, quality, vFormat, dl_playlist):
         self.url = url
         self.postProcessor = self.get_postProcessor(quality, vFormat)
-        self.vFormat = self.get_vFormat(vFormat, quality)
+        self.vFormat = self.get_video_format(vFormat, quality)
         self.dl_playlist = self.need_dl_playlist(dl_playlist)
         self.dlDir = self.set_dl_dir()
 
@@ -57,8 +57,8 @@ class streamDlCore(object):
         shutil.rmtree('app/dl')
         if not os.path.exists('app/dl'):
             os.makedirs('app/dl')
-       
-        
+
+
     def get_postProcessor(self, quality, vFormat):
         """
         return dict with options for postDownload process
@@ -75,8 +75,8 @@ class streamDlCore(object):
             }]
         return []
 
-    def get_vFormat(self, vformat, quality):
-        if vformat == 'mp3':
+    def get_video_format(self, vformat_from_user, quality):
+        if vformat_from_user == 'mp3':
             if quality == 'max':
                 return 'bestaudio/best'
             return 'worstaudio'
