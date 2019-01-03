@@ -24,11 +24,11 @@ You must install docker and its dependancies.
 ```sh
 $ git clone https://github.com/dh4rm4/stream_dl &&
 $ cd stream_dl
-$ sudo docker build . -t stream_dl:latest 
+$ sudo docker build . -t stream_dl:latest
 ```
 
 ## Usage example
 
 ```sh
-$ sudo docker run -p 5000:5000 stream_dl:latest
+$ sudo docker run -t -p 5000:5000 stream_dl:latest
 ```
