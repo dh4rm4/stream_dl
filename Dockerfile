@@ -8,7 +8,8 @@ ARG secret_key=BoidBOIDboid
 # Softwares dependancies
 RUN apt-get update && \
     apt-get install nginx -yy \
-					python3-pip
+					python3-pip \
+					ffmpeg
 
 # Set Flask Env Var
 ENV FLASK_SECRET_KEY=$secret_key
