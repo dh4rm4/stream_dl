@@ -2,7 +2,7 @@
 # github link: https://github.com/dh4rm4/stream_dl
 
 # Base Image
-FROM debian:jessie
+FROM debian:stretch
 ARG secret_key=BoidBOIDboid
 
 # Softwares dependancies
