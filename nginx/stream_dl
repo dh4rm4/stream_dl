@@ -14,7 +14,7 @@ server {
     client_max_body_size 4G;
 
     access_log /webapps/log/stream_dl/nginx-access.log;
-    error_log /webapps/log/strem_dl/nginx-error.log;
+    error_log /webapps/log/stream_dl/nginx-error.log;
 
     location /static/ {
 	        alias   /webapps/stream_dl/src/app/static/;
