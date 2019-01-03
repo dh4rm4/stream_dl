@@ -26,6 +26,8 @@ WORKDIR /webapps/stream_dl/src
 
 #Setup Nginx
 ADD ./nginx/stream_dl /etc/nginx/sites-available/
+RUN mkdir -p /webapps/log/stream_dl/
+RUN touch /webapps/log/stream_dl/nginx-error.log
 RUN ln -s /etc/nginx/sites-available/stream_dl /etc/nginx/sites-enabled/stream_dl && \
 	service nginx restart
 
